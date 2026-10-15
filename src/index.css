@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dent-primary: #0F766E;
+  --dent-primary-dark: #082E2C;
+  --dent-primary-light: #14B8A6;
+  --dent-gold: #C59A5A;
+  --dent-gold-light: #EBDDC5;
+  --dent-bg: #F4F7F6;
+  --dent-card: #FFFFFF;
+  --dent-text: #0B1716;
+  --dent-muted: #59716E;
+  --dent-border: rgba(15, 118, 110, 0.12);
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    background-color: #F4F7F6;
+    color: #0B1716;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Luxury 3D & Glass Elements */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 20px 50px -12px rgba(11, 30, 28, 0.08);
+}
+
+.glass-capsule {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 48px -12px rgba(11, 30, 28, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.04), inset 0 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.glass-capsule-dark {
+  background: rgba(6, 28, 27, 0.85);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(20, 184, 166, 0.25);
+  box-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 30px 70px -15px rgba(11, 30, 28, 0.18), 0 0 0 1px rgba(15, 118, 110, 0.08);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A87E4F 0%, #C59A5A 50%, #E6C79C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.teal-gradient-text {
+  background: linear-gradient(135deg, #0B4E4A 0%, #0F766E 50%, #14B8A6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtle-mesh-bg {
+  background-color: #F4F7F6;
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(20, 184, 166, 0.06) 0px, transparent 50%),
+    radial-gradient(at 90% 15%, rgba(197, 154, 90, 0.08) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(15, 118, 110, 0.05) 0px, transparent 60%);
+}
+
+.dark-mesh-bg {
+  background-color: #061F1E;
+  background-image: 
+    radial-gradient(at 20% 20%, rgba(20, 184, 166, 0.15) 0px, transparent 60%),
+    radial-gradient(at 80% 80%, rgba(197, 154, 90, 0.12) 0px, transparent 60%);
+}
+
+/* 3D Perspective Card Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Subtle glow animations */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 45px 5px rgba(20, 184, 166, 0.5);
+  }
+}
+
+.pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* Button Golden Sweep Animation */
+@keyframes goldShine {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.gold-sweep-btn {
+  background-size: 200% auto;
+  transition: all 0.4s ease;
+}
+
+.gold-sweep-btn:hover {
+  animation: goldShine 3s infinite linear;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F0F4F3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0F766E;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0B5E58;
+}
