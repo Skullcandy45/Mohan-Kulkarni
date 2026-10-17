@@ -1,0 +1,288 @@
+/* Soft Pastel Admin — see docs/Admin-UI.md */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.admin-shell,
+.admin-modal {
+  --admin-page-pad: clamp(24px, 4vw, 40px);
+  --field-gap: 16px;
+  --section-gap: 24px;
+  --card-pad: 24px;
+  --admin-page-bg: #f8f9fb;
+  --admin-card-bg: #ffffff;
+  --admin-text-1: #1e293b;
+  --admin-text-2: #64748b;
+  --admin-text-3: #94a3b8;
+  --admin-border: #f1f5f9;
+  --admin-input-border: #e2e8f0;
+
+  --admin-blue-bg: #ebf4ff;
+  --admin-blue: #3b82f6;
+  --admin-blue-hover: #dbeafe;
+
+  --admin-scrollbar-size: 6px;
+  --admin-scrollbar-track: #ebf4ff;
+  --admin-scrollbar-thumb: #93c5fd;
+  --admin-scrollbar-thumb-hover: #60a5fa;
+
+  font-family: 'Plus Jakarta Sans', 'DM Sans', system-ui, sans-serif;
+  color: var(--admin-text-1);
+}
+
+/* Form fields — work in layout AND in portaled modals */
+.admin-shell .admin-input,
+.admin-modal .admin-input,
+.admin-input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: 12px;
+  border: 1.5px solid var(--admin-input-border);
+  padding: 10px 14px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--admin-text-1);
+  background: #fff;
+  box-shadow: none;
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.admin-shell textarea.admin-input,
+.admin-modal textarea.admin-input,
+textarea.admin-input {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.admin-shell .admin-input::placeholder,
+.admin-modal .admin-input::placeholder,
+.admin-input::placeholder {
+  color: var(--admin-text-3);
+}
+
+.admin-shell .admin-input:focus,
+.admin-modal .admin-input:focus,
+.admin-input:focus {
+  outline: none;
+  border-color: var(--admin-blue);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+.admin-shell .admin-label,
+.admin-modal .admin-label,
+.admin-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+/* Modal form layout — natural height inside scroll body (no flex trap under footer) */
+.admin-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap, 24px);
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-modal .admin-modal-form {
+  gap: var(--section-gap, 24px);
+}
+
+/* Modal form layout — natural height inside scroll body (no flex trap under footer) */
+.admin-modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap, 24px);
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-modal .admin-modal-form {
+  gap: var(--section-gap, 24px);
+}
+
+.admin-modal .admin-modal-form > .admin-form-section,
+.admin-modal .admin-modal-form > [class*='AdminFormSection'] {
+  margin: 0;
+}
+
+.admin-modal-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 12rem;
+  padding: 3rem 0;
+}
+
+/* Slim pastel-blue scrollbars (admin layout, sidebar, modals) */
+.admin-scrollbar,
+.admin-modal-form__scroll,
+.admin-modal-scroll,
+.admin-shell textarea.admin-input,
+.admin-modal textarea.admin-input {
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: var(--admin-scrollbar-thumb) var(--admin-scrollbar-track);
+}
+
+.admin-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--admin-scrollbar-thumb) var(--admin-scrollbar-track);
+  scrollbar-gutter: stable;
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar,
+.admin-shell .admin-modal__body::-webkit-scrollbar,
+.admin-shell .admin-modal-scroll::-webkit-scrollbar,
+.admin-shell textarea.admin-input::-webkit-scrollbar,
+.admin-modal.admin-scrollbar::-webkit-scrollbar,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar,
+.admin-modal .admin-modal__body::-webkit-scrollbar,
+.admin-modal .admin-modal-scroll::-webkit-scrollbar,
+.admin-modal textarea.admin-input::-webkit-scrollbar {
+  width: var(--admin-scrollbar-size);
+  height: var(--admin-scrollbar-size);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar-button,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar-button,
+.admin-shell .admin-modal__body::-webkit-scrollbar-button,
+.admin-shell .admin-modal-scroll::-webkit-scrollbar-button,
+.admin-shell textarea.admin-input::-webkit-scrollbar-button,
+.admin-modal .admin-scrollbar::-webkit-scrollbar-button,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar-button,
+.admin-modal .admin-modal__body::-webkit-scrollbar-button,
+.admin-modal .admin-modal-scroll::-webkit-scrollbar-button,
+.admin-modal textarea.admin-input::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar-track,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar-track,
+.admin-shell .admin-modal__body::-webkit-scrollbar-track,
+.admin-shell .admin-modal-scroll::-webkit-scrollbar-track,
+.admin-shell textarea.admin-input::-webkit-scrollbar-track,
+.admin-modal .admin-scrollbar::-webkit-scrollbar-track,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar-track,
+.admin-modal .admin-modal__body::-webkit-scrollbar-track,
+.admin-modal .admin-modal-scroll::-webkit-scrollbar-track,
+.admin-modal textarea.admin-input::-webkit-scrollbar-track {
+  background: var(--admin-scrollbar-track);
+  border-radius: 999px;
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar-thumb,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar-thumb,
+.admin-shell .admin-modal__body::-webkit-scrollbar-thumb,
+.admin-shell .admin-modal-scroll::-webkit-scrollbar-thumb,
+.admin-shell textarea.admin-input::-webkit-scrollbar-thumb,
+.admin-modal .admin-scrollbar::-webkit-scrollbar-thumb,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar-thumb,
+.admin-modal .admin-modal__body::-webkit-scrollbar-thumb,
+.admin-modal .admin-modal-scroll::-webkit-scrollbar-thumb,
+.admin-modal textarea.admin-input::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #93c5fd 0%, var(--admin-scrollbar-thumb) 100%);
+  border-radius: 999px;
+  min-height: 32px;
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar-thumb:hover,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar-thumb:hover,
+.admin-shell .admin-modal__body::-webkit-scrollbar-thumb:hover,
+.admin-shell .admin-modal-scroll::-webkit-scrollbar-thumb:hover,
+.admin-shell textarea.admin-input::-webkit-scrollbar-thumb:hover,
+.admin-modal .admin-scrollbar::-webkit-scrollbar-thumb:hover,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar-thumb:hover,
+.admin-modal .admin-modal__body::-webkit-scrollbar-thumb:hover,
+.admin-modal .admin-modal-scroll::-webkit-scrollbar-thumb:hover,
+.admin-modal textarea.admin-input::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--admin-scrollbar-thumb) 0%, var(--admin-scrollbar-thumb-hover) 100%);
+}
+
+.admin-shell .admin-scrollbar::-webkit-scrollbar-corner,
+.admin-shell .admin-modal-form__scroll::-webkit-scrollbar-corner,
+.admin-modal .admin-modal-form__scroll::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.admin-modal .admin-field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+.admin-modal .admin-field-grid {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .admin-modal .admin-field-grid.cols-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Layout helpers (Admin-UI.md §14) ── */
+
+/* TYPE A/C: List & dashboard pages */
+.admin-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.admin-settings-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+}
+
+@keyframes admin-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-admin-modal-in {
+  animation: admin-modal-in 0.25s ease-out forwards;
+}
+
+/* TYPE B: Settings page shell uses .admin-page (full width up to 1200px). */
+/* .admin-form-centered — modals / standalone form pages only (720px cap) */
+.admin-form-centered {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Outside-modal field grids (same 16px gap) */
+.admin-field-grid {
+  display: grid;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (min-width: 640px) {
+  .admin-field-grid.cols-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

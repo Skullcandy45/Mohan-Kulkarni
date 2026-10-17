@@ -1,239 +1,315 @@
-import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import React, { useEffect, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import {
-  ShieldCheck,
-  Clock,
-  Sparkles,
-  ArrowRight,
-  CheckCircle2,
-  Calendar,
-  Phone,
-  HelpCircle,
-  Activity,
-  Layers,
-  ChevronDown,
+  ArrowUpRight, Phone, Calendar,
+  HelpCircle, Plus,
 } from 'lucide-react';
-import { siteData } from '../data/siteData';
-import Interactive3DCard from '../components/3d/Interactive3DCard';
+import { siteConfig, buildWhatsAppLink } from '../config/siteConfig';
+import { api } from '../lib/api';
+import { useSettings } from '../contexts/SettingsContext';
+import { parseJsonArray } from '../lib/contentFromSettings';
+import ServiceCard from '../components/ServiceCard';
+import SectionHeader from '../components/SectionHeader';
+import WhatsAppIcon from '../components/WhatsAppIcon';
+import { PageHero, PageHeroItem } from '../components/motion/PageHeroMotion';
+
+function ServiceHeroKpiCard({ k }) {
+  const spanClass = k.colSpan === 2 || k.fullWidth ? 'col-span-2' : '';
+  const labelCls = 'text-xs font-mono uppercase tracking-widest mb-1';
+  const variant = k.variant || 'card';
+  if (variant === 'ink' || variant === 'dark') {
+    return (
+      <div className={`card-ink p-5 ${spanClass}`}>
+        <div className={`${labelCls} text-cream/60`}>{k.label}</div>
+        <div className="font-display text-3xl text-cream font-medium leading-none">{k.value}</div>
+      </div>
+    );
+  }
+  if (variant === 'accent' || variant === 'primary') {
+    return (
+      <div className={`card p-5 bg-primary text-white border-primary ${spanClass}`}>
+        <div className={`${labelCls} text-white/70`}>{k.label}</div>
+        <div className="font-display text-2xl text-white font-medium leading-tight">{k.value}</div>
+        {k.subtitle ? (
+          <div className="mt-3 text-[12px] text-white/80">{k.subtitle}</div>
+        ) : null}
+      </div>
+    );
+  }
+  return (
+    <div className={`card p-5 ${spanClass}`}>
+      <div className={`${labelCls} text-muted`}>{k.label}</div>
+      <div className="font-display text-3xl text-ink font-medium leading-none">{k.value}</div>
+    </div>
+  );
+}
+
+function FaqItem({ item, idx, openIdx, setOpenIdx }) {
+  const open = openIdx === idx;
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: idx * 0.05 }}
+      className="border border-line rounded-[var(--radius-lg)] overflow-hidden bg-surface"
+    >
+      <button
+        type="button"
+        onClick={() => setOpenIdx(open ? -1 : idx)}
+        className="w-full flex items-center justify-between gap-4 px-5 sm:px-6 py-4 sm:py-5 text-left group touch-target"
+        aria-expanded={open}
+      >
+        <span className="font-medium text-ink text-base sm:text-lg leading-snug">{item.q}</span>
+        <span className={`shrink-0 w-9 h-9 rounded-full grid place-items-center transition-all ${open ? 'bg-primary text-white rotate-45' : 'bg-bg-subtle text-ink'}`}>
+          <Plus size={16} />
+        </span>
+      </button>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            key="content"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-5 sm:px-6 pb-5 sm:pb-6 text-[15px] sm:text-base leading-relaxed" style={{ color: 'var(--color-text-light)' }}>
+              {item.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+}
 
 export default function ServicesPage() {
-  const location = useLocation();
-  const [selectedService, setSelectedService] = useState(siteData.services[0]);
-  const [openFaq, setOpenFaq] = useState(null);
+  const navigate = useNavigate();
+  const { settings } = useSettings();
+  const { process, content } = siteConfig;
+  const servicesContent = content?.servicesPage || {};
+  const faq = parseJsonArray(settings?.services_faq_json, servicesContent.faq || []);
+  const heroKpis = parseJsonArray(settings?.services_hero_kpis_json, servicesContent.heroKpis || []);
+  const [services, setServices] = useState(siteConfig.services || []);
+  const [openIdx, setOpenIdx] = useState(0);
+  const phone = settings.contact_phone || siteConfig.site.contact?.phone;
+  const waLink = buildWhatsAppLink('', settings);
+  const home = siteConfig.content?.home || {};
 
   useEffect(() => {
-    if (location.hash) {
-      const slug = location.hash.replace('#', '');
-      const match = siteData.services.find((s) => s.slug === slug);
-      if (match) setSelectedService(match);
-    }
-  }, [location.hash]);
+    let active = true;
+    api.services.getAll({ published: true }).then((res) => {
+      if (!active) return;
+      if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+        setServices(res.data);
+      }
+    }).catch(() => {});
+    return () => { active = false; };
+  }, []);
+
+  const handleWhatsApp = useCallback((svc) => {
+    const link = buildWhatsAppLink(`Hi — I'd like to enquire about ${svc.title}.`, settings);
+    window.open(link, '_blank', 'noopener,noreferrer');
+  }, [settings]);
+
+  const handleBook = useCallback((svc) => {
+    const q = svc?.title ? `?service=${encodeURIComponent(svc.title)}` : '';
+    navigate(`/appointment${q}`);
+  }, [navigate]);
+
+  const featured = services[0];
+  const rest = services.slice(1);
 
   return (
-    <div className="min-h-screen subtle-mesh-bg pt-28 sm:pt-36 pb-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-dent-600 block mb-3">
-            Comprehensive Dental Specialization
-          </span>
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-dent-950 tracking-tight mb-4">
-            Clinical Treatments & <span className="teal-gradient-text">Procedures</span>
-          </h1>
-          <p className="text-base text-dent-950/70 leading-relaxed">
-            Every procedure is planned using 3D digital imaging and executed with microscopic precision to preserve healthy natural tooth tissue.
-          </p>
-        </div>
+    <div className="premium-page-content overflow-x-clip">
+      <section className="relative pt-4 pb-16 lg:pt-8 lg:pb-24 overflow-hidden">
+        <div className="absolute inset-0 bg-grid-soft opacity-[0.45] pointer-events-none mask-fade-b" />
+        <div className="absolute -top-24 -right-32 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="shell relative">
+          <div className="grid lg:grid-cols-12 gap-10 items-end">
+            <PageHero className="lg:col-span-8">
+              <PageHeroItem>
+              <span className="chip">
+                <span className="w-1.5 h-1.5 rounded-full bg-success animate-pulse" aria-hidden />
+                {servicesContent.heroBadge || home.servicesBadge} · {services.length}
+              </span>
+              </PageHeroItem>
+              <PageHeroItem>
+              <h1 className="mt-6 display-h1 text-balance">
+                {servicesContent.heroTitle || home.servicesTitle}{' '}
+                <span className="text-primary">{servicesContent.heroHighlight || home.servicesHighlight}</span>
+              </h1>
+              </PageHeroItem>
+              <PageHeroItem>
+              <p className="mt-5 lead max-w-xl">
+                {servicesContent.heroSubtitle || home.servicesSubtitle}
+              </p>
+              </PageHeroItem>
+              <PageHeroItem>
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp px-6 py-3.5 text-[15px] min-h-[44px]">
+                  <WhatsAppIcon className="w-5 h-5" /> Chat on WhatsApp
+                </a>
+                <Link to="/appointment" className="btn-primary px-6 py-3.5 text-[15px] gap-2 group min-h-[44px]">
+                  <Calendar size={16} /> Book appointment
+                  <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </Link>
+              </div>
+              </PageHeroItem>
+            </PageHero>
 
-        {/* Tab Pills for Fast Navigation */}
-        <div className="flex items-center justify-start lg:justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
-          {siteData.services.map((svc) => {
-            const active = selectedService.id === svc.id;
-            return (
-              <button
-                key={svc.id}
-                onClick={() => setSelectedService(svc)}
-                className={`whitespace-nowrap px-4 py-2.5 rounded-full text-xs font-bold transition-all shrink-0 ${
-                  active
-                    ? 'bg-dent-600 text-white shadow-md shadow-dent-600/25 scale-[1.02]'
-                    : 'bg-white text-dent-900 border border-dent-200/80 hover:bg-dent-50'
-                }`}
-              >
-                {svc.title.split('&')[0]}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Selected Service Deep-Dive Hero Card */}
-        <div className="rounded-3xl bg-white border border-dent-500/15 p-6 sm:p-10 lg:p-12 shadow-glass mb-20">
-          <div className="grid lg:grid-cols-12 gap-10 items-center">
-            {/* Left Narrative (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-xs font-bold uppercase tracking-wider bg-gold-100 text-gold-800 px-3 py-1 rounded-full border border-gold-300/40">
-                    {selectedService.badge}
-                  </span>
-                  <span className="text-xs font-semibold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-                    Success Rate: {selectedService.successRate}
-                  </span>
-                </div>
-
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-dent-950 mb-4">
-                  {selectedService.title}
-                </h2>
-
-                <p className="text-sm sm:text-base text-dent-950/75 leading-relaxed mb-6">
-                  {selectedService.fullDesc}
-                </p>
-
-                {/* Procedure Quick Metrics */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-dent-50/70 border border-dent-100 mb-8 text-xs">
-                  <div>
-                    <span className="text-dent-600 font-semibold block mb-0.5">Procedure Duration:</span>
-                    <strong className="text-dent-950">{selectedService.duration}</strong>
-                  </div>
-                  <div>
-                    <span className="text-dent-600 font-semibold block mb-0.5">Recovery Time:</span>
-                    <strong className="text-dent-950">{selectedService.recovery}</strong>
-                  </div>
-                  <div className="col-span-2 sm:col-span-1">
-                    <span className="text-dent-600 font-semibold block mb-0.5">Investment:</span>
-                    <strong className="text-dent-950">{selectedService.pricing}</strong>
-                  </div>
-                </div>
-
-                {/* Key Clinical Advantages */}
-                <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-dent-900 mb-3">
-                  Included in Your Treatment Protocol:
-                </h4>
-                <div className="grid sm:grid-cols-2 gap-2.5 mb-8">
-                  {selectedService.features.map((feat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-dent-800 font-medium">
-                      <CheckCircle2 size={14} className="text-dent-600 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
+            {heroKpis.length > 0 && (
+              <PageHero className="lg:col-span-4 mt-8 lg:mt-0">
+                <div className="grid grid-cols-2 gap-3">
+                  {heroKpis.map((k, i) => (
+                    <PageHeroItem key={i}>
+                      <ServiceHeroKpiCard k={k} />
+                    </PageHeroItem>
                   ))}
                 </div>
-              </div>
+              </PageHero>
+            )}
+          </div>
+        </div>
+      </section>
 
-              {/* CTAs */}
-              <div className="flex flex-col sm:flex-row items-center gap-4 pt-6 border-t border-dent-100">
-                <Link
-                  to={`/appointment?service=${selectedService.slug}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-dent-600 hover:bg-dent-700 text-white font-bold text-xs uppercase tracking-wider px-7 py-3.5 rounded-xl shadow-lg shadow-dent-600/20 transition-all hover:scale-105"
-                >
-                  <Calendar size={14} />
-                  <span>Book for {selectedService.title.split('&')[0]}</span>
-                </Link>
-                <Link
-                  to="/smile-studio"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-dent-50 hover:bg-dent-100 text-dent-900 font-semibold text-xs px-6 py-3.5 rounded-xl border border-dent-200 transition-colors"
-                >
-                  <Sparkles size={14} className="text-gold-500" />
-                  <span>Simulate in 3D</span>
-                </Link>
-              </div>
+      <section className="section pt-0">
+        <div className="shell">
+          <SectionHeader
+            badge={home.servicesBadge}
+            title="All"
+            highlight="services"
+            description="Book online or message us — every service includes clear pricing and duration."
+          />
+
+          {services.length === 0 ? (
+            <div className="card p-10 text-center">
+              <p className="text-lg text-ink font-medium">No services published yet.</p>
+              <p className="mt-2 text-muted">Check back soon or contact us directly.</p>
+              <Link to="/contact" className="btn-primary mt-6 inline-flex">Contact us</Link>
             </div>
-
-            {/* Right Media (5 Cols) */}
-            <div className="lg:col-span-5">
-              <Interactive3DCard maxTilt={6}>
-                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-dent-950 relative">
-                  <img
-                    src={selectedService.photo}
-                    alt={selectedService.title}
-                    className="w-full aspect-[4/3] sm:aspect-square object-cover"
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 items-stretch">
+              {featured && (
+                <div className="md:col-span-2 lg:col-span-1 lg:row-span-2">
+                  <ServiceCard
+                    service={featured}
+                    index={0}
+                    variant="feature"
+                    onWhatsApp={() => handleWhatsApp(featured)}
+                    onBook={() => handleBook(featured)}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dent-950 via-dent-950/10 to-transparent pointer-events-none" />
-                  <div className="absolute bottom-6 left-6 right-6 text-white">
-                    <span className="text-[11px] font-mono uppercase tracking-widest text-gold-300 font-bold block mb-1">
-                      Clinical Operatory View
-                    </span>
-                    <h4 className="text-lg font-bold">{selectedService.title}</h4>
-                  </div>
                 </div>
-              </Interactive3DCard>
+              )}
+              {rest.map((s, i) => (
+                <ServiceCard
+                  key={s.id}
+                  service={s}
+                  index={featured ? i + 1 : i}
+                  variant="grid"
+                  onWhatsApp={() => handleWhatsApp(s)}
+                  onBook={() => handleBook(s)}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <section className="bg-bg-subtle border-y border-line">
+        <div className="shell section">
+          <SectionHeader
+            badge={home.processBadge}
+            title={home.processTitle}
+            highlight={home.processHighlight}
+            description={servicesContent.processDescription || home.processSubtitle}
+          />
+
+          <div className="relative">
+            <div className="hidden lg:block absolute top-12 left-0 right-0 h-px bg-line" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative">
+              {process.map((p, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative"
+                >
+                  <div className="relative z-10 inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-surface border border-line text-ink font-display text-2xl shadow-elegant mb-5">
+                    <span>{p.step}</span>
+                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl text-ink mb-2">{p.title}</h3>
+                  <p className="text-[15px] leading-relaxed" style={{ color: 'var(--color-text-light)' }}>{p.desc}</p>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
+      </section>
 
-        {/* 6-Step Patient Treatment Journey */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-dent-600 block mb-2">
-              Our Digital Workflow
-            </span>
-            <h2 className="text-3xl font-extrabold text-dent-950 tracking-tight">
-              The 4-Phase Painless Dental Journey
-            </h2>
+      {faq.length > 0 && (
+        <section className="section">
+          <div className="shell grid lg:grid-cols-12 gap-8 lg:gap-12">
+            <div className="lg:col-span-5">
+              <span className="eyebrow">
+                <HelpCircle size={12} aria-hidden /> Frequently asked
+              </span>
+              <h2 className="mt-4 display-h2">
+                Quick answers, before <span className="text-primary">we talk.</span>
+              </h2>
+              <p className="mt-5 lead max-w-md">
+                {servicesContent.faqSidebar}
+              </p>
+              <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp mt-7 px-5 py-3 text-sm min-h-[44px]">
+                <WhatsAppIcon className="w-4 h-4" /> Ask on WhatsApp
+              </a>
+            </div>
+            <div className="lg:col-span-7 space-y-3 sm:space-y-4">
+              {faq.map((item, idx) => (
+                <FaqItem key={idx} item={item} idx={idx} openIdx={openIdx} setOpenIdx={setOpenIdx} />
+              ))}
+            </div>
           </div>
+        </section>
+      )}
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { step: '01', title: '3D Optical Scan', desc: '60-second intraoral 3D scan and ultra-low radiation CBCT bone mapping with zero gooey impression paste.' },
-              { step: '02', title: 'Virtual Simulation', desc: 'Dr. Mohan designs your smile and surgical guides on screen. You review and approve before we touch a tooth.' },
-              { step: '03', title: 'Microscopic Procedure', desc: 'Computerized wand anesthesia ensures absolute numbness while Zeiss magnification provides sub-millimeter accuracy.' },
-              { step: '04', title: 'Lifelong Care & Warranty', desc: 'Direct follow-up check-in, digital maintenance guidelines, and official manufacturer warranty certificate.' },
-            ].map((p, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-dent-500/15 shadow-glass flex flex-col justify-between">
-                <div>
-                  <span className="text-3xl font-black text-dent-200 block mb-3 font-mono">
-                    {p.step}
-                  </span>
-                  <h3 className="text-base font-bold text-dent-950 mb-2">{p.title}</h3>
-                  <p className="text-xs text-dent-950/70 leading-relaxed">{p.desc}</p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-dent-100 flex items-center gap-1 text-xs text-dent-600 font-semibold">
-                  <CheckCircle2 size={13} className="text-emerald-500" />
-                  <span>Standard Clinical Protocol</span>
-                </div>
+      <section className="pb-16 sm:pb-20">
+        <div className="shell">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="card-ink p-8 sm:p-10 lg:p-12 relative overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-grid-pattern opacity-[0.05]" aria-hidden />
+            <div className="relative grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="display-h3 text-cream">
+                  See a service that fits? <span className="text-accent-visible">Let&apos;s talk.</span>
+                </h3>
               </div>
-            ))}
-          </div>
+              <div className="flex flex-wrap gap-3 md:justify-end">
+                <a href={waLink} target="_blank" rel="noopener noreferrer" className="btn-whatsapp px-5 py-3.5 text-sm min-h-[44px]">
+                  <WhatsAppIcon className="w-4 h-4" /> Chat on WhatsApp
+                </a>
+                {phone && (
+                  <a href={`tel:${phone}`} className="btn-white px-5 py-3.5 text-sm min-h-[44px]">
+                    <Phone size={14} /> {phone}
+                  </a>
+                )}
+                <Link to="/appointment" className="btn-primary px-5 py-3.5 text-sm min-h-[44px]">
+                  Book appointment
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </div>
-
-        {/* Treatment Frequently Asked Questions Accordion */}
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-dent-600 block mb-2">
-              Common Questions
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-dent-950">
-              Frequently Asked Clinical Questions
-            </h3>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            {siteData.faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className="rounded-2xl bg-white border border-dent-500/15 shadow-xs overflow-hidden transition-all"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full text-left p-5 flex items-center justify-between gap-4 font-bold text-sm text-dent-950 hover:text-dent-700 transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      size={18}
-                      className={`text-dent-500 shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-dent-950/70 leading-relaxed border-t border-dent-100 bg-dent-50/30">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
