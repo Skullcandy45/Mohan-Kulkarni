@@ -60,12 +60,21 @@ export default function PremiumNav({ innerPage = false }) {
               >
                 <Sparkles size={18} />
               </span>
-              <span
-                className={`font-semibold text-sm sm:text-base tracking-tight truncate max-w-[52vw] sm:max-w-none ${
-                  onDark ? 'text-white' : 'text-ink'
-                }`}
-              >
-                {siteName}
+              <span className="flex flex-col min-w-0 leading-tight">
+                <span
+                  className={`font-bold text-sm sm:text-base tracking-tight truncate max-w-[52vw] sm:max-w-none ${
+                    onDark ? 'text-white' : 'text-ink'
+                  }`}
+                >
+                  Dr. Mohan Kulkarni
+                </span>
+                <span
+                  className={`text-[10px] sm:text-[11px] font-mono tracking-wider uppercase truncate ${
+                    onDark ? 'text-amber-200/85' : 'text-primary'
+                  }`}
+                >
+                  Dental Solutions · Santacruz (W)
+                </span>
               </span>
             </Link>
 
