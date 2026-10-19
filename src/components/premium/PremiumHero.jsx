@@ -75,29 +75,29 @@ export default function PremiumHero() {
         />
 
         {/* Central Content Area (Similar to Raunak Kulkarni's hero architecture, customized for Dr. Mohan) */}
-        <div className="relative z-10 flex-1 shell flex items-center justify-center pt-28 sm:pt-32 lg:pt-36 pb-8 lg:pb-10">
-          <div className="w-full max-w-4xl mx-auto text-center rounded-[2rem] sm:rounded-[2.5rem] px-6 py-8 sm:px-10 sm:py-10 lg:px-12 lg:py-12 bg-white/10 backdrop-blur-2xl border border-amber-200/35 shadow-[0_32px_100px_-24px_rgba(0,0,0,0.65)] relative overflow-hidden">
+        <div className="relative z-10 flex-1 shell flex items-center justify-center pt-24 sm:pt-28 lg:pt-28 pb-4 lg:pb-6">
+          <div className="w-full max-w-4xl mx-auto text-center rounded-[1.75rem] sm:rounded-[2.25rem] px-5 py-6 sm:px-8 sm:py-7 lg:px-10 lg:py-8 bg-white/10 backdrop-blur-2xl border border-amber-200/35 shadow-[0_28px_90px_-24px_rgba(0,0,0,0.65)] relative overflow-hidden">
             {/* Top gold ambient line accent */}
             <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-amber-300/60 to-transparent" />
 
             {/* Live Status Pill with pulsing green beacon */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-amber-300/40 backdrop-blur-md shadow-sm">
-              <span className="relative flex h-2.5 w-2.5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 border border-amber-300/40 backdrop-blur-md shadow-sm">
+              <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-xs sm:text-[13px] font-medium tracking-wide text-amber-100 font-mono">
+              <span className="text-[11px] sm:text-xs font-medium tracking-wide text-amber-100 font-mono">
                 Santacruz West, Mumbai • Est. 1977 • 47+ Years Clinical Mastery
               </span>
             </div>
 
             {/* Clinic Eyebrow */}
-            <p className="mt-4 text-xs sm:text-sm font-semibold uppercase tracking-[0.24em] text-emerald-300/90 font-mono">
+            <p className="mt-3 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/90 font-mono">
               Dr. Mohan Kulkarni’s Dental Solutions
             </p>
 
             {/* Grand Headline with Editorial Styling */}
-            <h1 className="mt-3 font-bold tracking-tight uppercase text-white drop-shadow-sm text-2xl sm:text-4xl lg:text-[2.9rem] leading-[1.16]">
+            <h1 className="mt-2.5 font-bold tracking-tight uppercase text-white drop-shadow-sm text-2xl sm:text-3xl lg:text-[2.65rem] leading-[1.15]">
               Gentle, Masterful Dentistry.
               <span className="block mt-1 normal-case font-display italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-100 to-emerald-200">
                 Santacruz West Since 1977.
@@ -105,45 +105,45 @@ export default function PremiumHero() {
             </h1>
 
             {/* Subtitle Bio */}
-            <p className="mt-4 text-sm sm:text-base text-white/90 leading-relaxed max-w-2xl mx-auto font-sans font-light">
+            <p className="mt-3 text-xs sm:text-sm lg:text-[15px] text-white/90 leading-relaxed max-w-2xl mx-auto font-sans font-light">
               Led by <strong className="text-white font-semibold">Dr. Mohan K. Kulkarni</strong> (BDS 1975, Govt Dental College Mumbai) — Past President of IDA Mumbai and honorary on-panel surgeon for Larsen &amp; Toubro and ONGC. Over four decades of calm, unhurried chairside care, precision implants, and whole-family oral health.
             </p>
 
             {/* Action Buttons Row */}
-            <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3.5">
               <Link
                 to="/appointment"
-                className="inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 text-[#0C1E1E] font-semibold text-sm sm:text-base shadow-[0_12px_32px_rgba(212,175,55,0.4)] hover:shadow-[0_16px_40px_rgba(212,175,55,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 rounded-full bg-gradient-to-r from-amber-300 via-amber-200 to-amber-400 text-[#0C1E1E] font-semibold text-xs sm:text-sm shadow-[0_12px_32px_rgba(212,175,55,0.4)] hover:shadow-[0_16px_40px_rgba(212,175,55,0.6)] hover:scale-[1.03] active:scale-[0.98] transition-all"
               >
                 <span>Book Consultation</span>
-                <ArrowUpRight size={17} className="stroke-[2.5]" />
+                <ArrowUpRight size={15} className="stroke-[2.5]" />
               </Link>
 
               <a
                 href="https://wa.me/919820045890?text=Hello%20Dr.%20Mohan%20Kulkarni,%20I%20would%20like%20to%20book%20a%20dental%20consultation."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full bg-white/12 hover:bg-white/22 border border-white/25 text-white font-medium text-sm sm:text-base backdrop-blur-md transition-all hover:scale-[1.02]"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-white/12 hover:bg-white/22 border border-white/25 text-white font-medium text-xs sm:text-sm backdrop-blur-md transition-all hover:scale-[1.02]"
               >
-                <MessageCircle size={18} className="text-emerald-400" />
+                <MessageCircle size={16} className="text-emerald-400" />
                 <span>WhatsApp Clinic</span>
               </a>
 
               <a
                 href="tel:+919820045890"
-                className="inline-flex items-center gap-2 text-xs sm:text-sm text-white/75 hover:text-amber-200 transition-colors py-2 px-1"
+                className="inline-flex items-center gap-1.5 text-xs text-white/75 hover:text-amber-200 transition-colors py-1.5 px-1"
               >
-                <Phone size={14} className="text-amber-300" />
+                <Phone size={13} className="text-amber-300" />
                 <span>022 2649 0333 / +91 98200 45890</span>
               </a>
             </div>
 
             {/* Radial Pill Buttons (Raunak Kulkarni's signature interaction, personalized for Dr. Mohan) */}
-            <div className="mt-8 pt-6 border-t border-white/15">
-              <p className="text-xs uppercase tracking-wider text-amber-200/70 font-mono mb-3">
+            <div className="mt-5 pt-4 border-t border-white/15">
+              <p className="text-[11px] sm:text-xs uppercase tracking-wider text-amber-200/70 font-mono mb-2">
                 Key Dental Treatments:
               </p>
-              <div className="flex flex-wrap justify-center gap-2.5">
+              <div className="flex flex-wrap justify-center gap-2">
                 {SERVICE_PILLS.map((label) => (
                   <PremiumRadialButton
                     key={label}
@@ -157,7 +157,7 @@ export default function PremiumHero() {
             </div>
 
             {/* Verified Patient Trust & Directories (From Image 1 Google, Practo, Justdial) */}
-            <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+            <div className="mt-4 pt-3.5 border-t border-white/10 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
               <a
                 href="https://share.google/JoKMfk8YZI6MwJktu"
                 target="_blank"
