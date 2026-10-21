@@ -59,11 +59,6 @@ export default function PremiumNav({ innerPage = false }) {
         { label: 'Full Mouth Rehabilitation', href: '/services' },
       ],
     },
-    {
-      label: '3D Smile Studio',
-      href: '/services',
-      badge: '3D Interactive',
-    },
     { label: 'Patient Stories', href: '/testimonials' },
     { label: 'Our Clinic', href: '/about' },
     { label: 'Contact', href: '/contact' },
@@ -151,15 +146,15 @@ export default function PremiumNav({ innerPage = false }) {
               {/* Title & Subtitle */}
               <div className="flex flex-col whitespace-nowrap">
                 <div className="flex items-center gap-2">
-                  <span className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-tight group-hover:text-[#0B3A3E] transition-colors">
+                  <span className="text-base sm:text-lg font-bold text-slate-900 tracking-tight leading-tight group-hover:text-[#0B3A3E] transition-colors">
                     Dr. Mohan Kulkarni
                   </span>
-                  <span className="hidden sm:inline-block text-[10px] font-mono font-bold bg-[#C5A880]/15 text-[#8C6D37] border border-[#C5A880]/40 px-1.5 py-0.5 rounded">
-                    BDS · FICOI
+                  <span className="hidden sm:inline-block text-[10px] font-semibold bg-[#0B3A3E]/8 text-[#0B3A3E] border border-[#0B3A3E]/20 px-2 py-0.5 rounded-md">
+                    BDS
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-semibold tracking-wider text-[#0B3A3E] block uppercase">
-                  Dental Solutions · Santacruz (W) · Est. 1977
+                <span className="text-[10px] sm:text-xs text-slate-500 block">
+                  Dental Surgeon · Santacruz West, Mumbai
                 </span>
               </div>
             </Link>
@@ -246,10 +241,10 @@ export default function PremiumNav({ innerPage = false }) {
 
               <Link
                 to="/appointment"
-                className="inline-flex items-center gap-2 bg-[#072428] hover:bg-[#0B3A3E] text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 sm:px-6 sm:py-3 rounded-full shadow-md shadow-[#072428]/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#072428] hover:bg-[#0B3A3E] text-white text-xs font-semibold px-5 py-2.5 sm:px-6 sm:py-3 rounded-full shadow-md shadow-[#072428]/25 transition-all hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Calendar size={14} className="text-[#C5A880]" />
-                <span>Book VIP Visit</span>
+                <span>Book Appointment</span>
               </Link>
 
               {/* Mobile Hamburger Toggle */}

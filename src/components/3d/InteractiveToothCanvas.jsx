@@ -403,15 +403,15 @@ export default function InteractiveToothCanvas({ className = '', height = '460px
 
       // Auto rotation
       if (autoRotate && !isDraggingRef.current && toothGroupRef.current) {
-        toothGroupRef.current.rotation.y += delta * 0.45;
+        toothGroupRef.current.rotation.y += delta * 0.18;
       }
 
       // Inertia drag damping
       if (!isDraggingRef.current && toothGroupRef.current) {
         toothGroupRef.current.rotation.y += rotVelocityRef.current.x;
         toothGroupRef.current.rotation.x += rotVelocityRef.current.y;
-        rotVelocityRef.current.x *= 0.92;
-        rotVelocityRef.current.y *= 0.92;
+        rotVelocityRef.current.x *= 0.88;
+        rotVelocityRef.current.y *= 0.88;
 
         // Clamp x rotation to avoid flipping upside down
         toothGroupRef.current.rotation.x = Math.max(-0.6, Math.min(0.6, toothGroupRef.current.rotation.x));

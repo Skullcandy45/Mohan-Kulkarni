@@ -53,43 +53,41 @@ export default function PremiumHero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
               </span>
-              <span className="text-xs font-bold text-[#072428] tracking-wider uppercase">
-                Dr. Mohan Kulkarni • 47+ Years Surgical Excellence
+              <span className="text-xs font-semibold text-[#072428]">
+                47+ Years of Practice · Santacruz West, Mumbai
               </span>
             </div>
 
             {/* Display Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.65rem] font-extrabold text-slate-900 tracking-tight leading-[1.12] mb-6">
-              Next-Gen <span className="text-[#0B3A3E]">3D Dentistry.</span> <br />
-              Mastered for{' '}
-              <span className="bg-gradient-to-r from-[#B48439] via-[#D4AF37] to-[#C5A880] bg-clip-text text-transparent">
-                Natural Smiles.
-              </span>
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.25rem] font-bold text-slate-900 tracking-tight leading-[1.15] mb-6">
+              Trusted Dental Care
+              <br />
+              <span className="text-[#0B3A3E]">for Over Four Decades.</span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-slate-700/85 max-w-xl leading-relaxed mb-8">
-              Pioneering microscopically guided implants, digital 3D smile architecture, and painless laser dentistry in Santacruz West, Mumbai. 47+ years of surgical mastery. Zero guesswork, zero anxiety.
+            <p className="text-base sm:text-lg text-slate-600 max-w-lg leading-relaxed mb-8">
+              Dr. Mohan K. Kulkarni has been providing comprehensive dental care in Santacruz West, Mumbai since 1977. From routine check-ups to advanced implants and smile makeovers — experienced, gentle, and thorough.
             </p>
 
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
               <Link
                 to="/appointment"
-                className="inline-flex items-center justify-center gap-2.5 bg-[#072428] hover:bg-[#0B3A3E] text-white font-bold text-xs uppercase tracking-wider px-8 py-4 rounded-2xl shadow-xl shadow-[#072428]/25 transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
+                className="inline-flex items-center justify-center gap-2.5 bg-[#072428] hover:bg-[#0B3A3E] text-white font-semibold text-sm px-8 py-4 rounded-2xl shadow-lg shadow-[#072428]/20 transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
               >
                 <Calendar size={17} className="text-[#C5A880]" />
-                <span>Book VIP Consultation</span>
+                <span>Book a Consultation</span>
                 <ArrowRight size={16} />
               </Link>
 
               <button
                 type="button"
                 onClick={focusToothModel}
-                className="inline-flex items-center justify-center gap-2 bg-white/85 hover:bg-white text-slate-900 font-bold text-xs uppercase tracking-wider px-7 py-4 rounded-2xl border border-slate-200 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm px-7 py-4 rounded-2xl border border-slate-200 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
               >
                 <Sparkles size={16} className="text-[#C5A880]" />
-                <span>Interactive 3D Studio</span>
+                <span>View 3D Model</span>
               </button>
             </div>
 
