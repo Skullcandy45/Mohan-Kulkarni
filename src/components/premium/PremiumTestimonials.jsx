@@ -54,7 +54,7 @@ function normalizeTestimonials(list) {
 
   const source = merged.slice(0, 10);
 
-  const defaultLocale = 'Gurugram, IN';
+  const defaultLocale = 'Mumbai, IN';
 
 
 
@@ -280,7 +280,7 @@ export default function PremiumTestimonials({ testimonials = [] }) {
 
             {p.testimonialsSubtitle ||
 
-              "Don't just take our word for it. See what our customers have to say about their experience!"}
+              "Hear what our patients say — thousands of happy smiles across Santacruz, Mumbai."}
 
           </p>
 

@@ -165,7 +165,7 @@ export default function Footer() {
               <FooterIconBox>
                 <Clock size={15} strokeWidth={2} aria-hidden />
               </FooterIconBox>
-              <span className="text-cream/80 text-sm">{site.contact?.hours || 'Mon to Fri · 9am to 7pm'}</span>
+              <span className="text-cream/80 text-sm">{site.contact?.hours || 'Mon–Sat: 10am–1pm & 6–9pm'}</span>
             </li>
           </ul>
         </motion.div>

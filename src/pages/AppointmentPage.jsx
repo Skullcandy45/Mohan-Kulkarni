@@ -152,9 +152,9 @@ export default function AppointmentPage() {
             {appointmentContent.heroBadge || "Easy Booking"}
           </span>
           <h1 className="mt-6 display-h1 text-balance">
-            Book a{" "}
+            Book your{" "}
             <em className="italic font-display text-primary">
-              discovery call.
+              dental appointment.
             </em>
           </h1>
           <p className="mt-7 text-lg text-muted leading-relaxed max-w-xl">
@@ -269,14 +269,14 @@ export default function AppointmentPage() {
                     <div>
                       <span className="eyebrow">
                         <span className="w-1.5 h-1.5 rounded-full bg-current" />{" "}
-                        Project intake
+                        Patient details
                       </span>
                       <h2 className="mt-3 font-display font-medium text-3xl sm:text-4xl text-ink tracking-mega">
                         {appointmentContent.formTitle}
                       </h2>
                     </div>
                     <p className="text-xs font-mono uppercase tracking-widest text-muted-2">
-                      ~ 2 minutes
+                      Quick &amp; easy
                     </p>
                   </div>
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -338,15 +338,14 @@ export default function AppointmentPage() {
                           >
                             <option value="">Select time</option>
                             {[
-                              "09:00 AM",
                               "10:00 AM",
                               "11:00 AM",
                               "12:00 PM",
                               "01:00 PM",
-                              "02:00 PM",
-                              "03:00 PM",
-                              "04:00 PM",
-                              "05:00 PM",
+                              "06:00 PM",
+                              "07:00 PM",
+                              "08:00 PM",
+                              "09:00 PM",
                             ].map((t) => (
                               <option key={t} value={t}>
                                 {t}
@@ -364,7 +363,7 @@ export default function AppointmentPage() {
                     <div className="grid sm:grid-cols-2 gap-5">
                       <Field
                         icon={User}
-                        label={appointmentContent.preferredStaffLabel}
+                        label={appointmentContent.preferredStaffLabel || 'Preferred Doctor'}
                       >
                         <div className="relative">
                           <select
@@ -374,7 +373,7 @@ export default function AppointmentPage() {
                             className="field appearance-none pr-10"
                           >
                             <option value="">
-                              {appointmentContent.anyStaffLabel}
+                              {appointmentContent.anyStaffLabel || 'Any available doctor'}
                             </option>
                             {team.map((m) => (
                               <option key={m.id} value={m.name}>
@@ -416,14 +415,14 @@ export default function AppointmentPage() {
 
                     <Field
                       icon={MessageSquare}
-                      label="A few sentences about the project"
+                      label="Describe your dental concern (optional)"
                     >
                       <textarea
                         name="message"
                         rows={4}
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="What are you hoping to ship? Any constraints we should know?"
+                        placeholder="E.g. tooth pain, chipped tooth, routine checkup, missing tooth, braces interest…"
                         className="field resize-none"
                       />
                     </Field>
@@ -476,8 +475,7 @@ export default function AppointmentPage() {
                     </div>
 
                     <p className="text-xs text-muted-2 font-mono uppercase tracking-widest text-center">
-                      A senior on the team replies — usually within a business
-                      day.
+                      Our front desk confirms your slot — usually within a few hours.
                     </p>
                   </form>
                 </>

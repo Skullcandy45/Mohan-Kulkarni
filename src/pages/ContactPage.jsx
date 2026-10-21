@@ -310,7 +310,7 @@ export default function ContactPage() {
                           {contactContent.formTitle}
                         </span>
                         <h2 className="mt-3 font-display font-medium text-3xl sm:text-4xl text-ink tracking-mega">
-                          Send us a note.
+                          Get in touch with us.
                         </h2>
                       </div>
                     </div>
@@ -403,7 +403,7 @@ export default function ContactPage() {
                         rows={5}
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="A few sentences about what you're working on…"
+                        placeholder="Tell us briefly what you need — a checkup, a specific concern, or just a question about our services…"
                         className="field resize-none"
                       />
                     </div>

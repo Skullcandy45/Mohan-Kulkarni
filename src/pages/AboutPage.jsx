@@ -74,10 +74,10 @@ export default function AboutPage() {
 
           <PageHero className="lg:col-span-5 grid grid-cols-2 gap-3 lg:gap-4">
             <PageHeroItem className="rounded-3xl overflow-hidden aspect-[3/4] col-span-1 row-span-2 border border-line">
-              <img src="https://picsum.photos/600/800?random=51" alt="Our team at work" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=600&h=800&q=80" alt="Dr. Mohan Kulkarni Dental Clinic" className="w-full h-full object-cover" />
             </PageHeroItem>
             <PageHeroItem className="rounded-3xl overflow-hidden aspect-square border border-line">
-              <img src="https://picsum.photos/500/500?random=52" alt="Workshop" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1588776814546-1ffbb1ba8b6e?auto=format&fit=crop&w=500&h=500&q=80" alt="Modern dental treatment" className="w-full h-full object-cover" />
             </PageHeroItem>
             <PageHeroItem className="rounded-3xl bg-ink p-5 text-cream relative overflow-hidden flex flex-col justify-between aspect-square">
               <Award size={20} className="text-primary" />
