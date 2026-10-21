@@ -1,28 +1,15 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Calendar,
-  Sparkles,
   ArrowRight,
-  ShieldCheck,
   Award,
-  Star,
   CheckCircle2,
-  Stethoscope,
   Microscope,
 } from 'lucide-react';
-import InteractiveToothCanvas from '../3d/InteractiveToothCanvas';
-import { siteConfig } from '../../config/siteConfig';
+import DoctorCard from './DoctorCard';
 
 export default function PremiumHero() {
-  const toothSectionRef = useRef(null);
-
-  const focusToothModel = () => {
-    if (toothSectionRef.current) {
-      toothSectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-  };
-
   const specialties = [
     'Immediate Load Implants',
     'Digital Smile Design (DSD)',
@@ -80,15 +67,6 @@ export default function PremiumHero() {
                 <span>Book a Consultation</span>
                 <ArrowRight size={16} />
               </Link>
-
-              <button
-                type="button"
-                onClick={focusToothModel}
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-semibold text-sm px-7 py-4 rounded-2xl border border-slate-200 shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] text-center"
-              >
-                <Sparkles size={16} className="text-[#C5A880]" />
-                <span>View 3D Model</span>
-              </button>
             </div>
 
             {/* Specialty Badges */}
@@ -125,23 +103,9 @@ export default function PremiumHero() {
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Interactive 3D Tooth & Treatment Canvas (5 cols) */}
-          <div ref={toothSectionRef} className="lg:col-span-5 relative w-full">
-            {/* Top pill badge */}
-            <div className="flex items-center justify-between mb-3 px-1">
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0B3A3E] bg-white/80 px-3 py-1 rounded-full border border-[#0B3A3E]/15 shadow-xs">
-                <Stethoscope size={13} className="text-[#0B3A3E]" />
-                Immediate Implant Specialist
-              </span>
-
-              <div className="flex items-center gap-1 text-xs font-bold text-amber-900 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200/60 shadow-xs">
-                <Star size={12} className="fill-[#D4AF37] text-[#D4AF37]" />
-                <span>4.98 / 5.0 (1,800+ Cases)</span>
-              </div>
-            </div>
-
-            {/* 3D Canvas Visualizer Component */}
-            <InteractiveToothCanvas height="360px" />
+          {/* RIGHT COLUMN: Animated Doctor Profile Card (5 cols) */}
+          <div className="lg:col-span-5 relative w-full py-6 lg:py-0">
+            <DoctorCard />
           </div>
         </div>
       </div>
