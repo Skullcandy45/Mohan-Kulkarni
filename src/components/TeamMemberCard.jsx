@@ -11,7 +11,7 @@ import { useMotionSafe } from '../lib/motion';
  */
 export default function TeamMemberCard({ member, index = 0, variant = 'grid' }) {
   const reduced = useMotionSafe();
-  const bookLabel = siteConfig.content?.common?.ctaButton || 'Book a call';
+  const bookLabel = siteConfig.content?.common?.ctaButton || 'Book Appointment';
   const [imgSrc, setImgSrc] = useState(() => getMemberImageUrl(member));
   const role = member.role || member.specialty || 'Team member';
   const isHome = variant === 'home' || variant === 'editorial';

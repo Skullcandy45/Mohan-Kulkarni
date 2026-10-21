@@ -7,7 +7,7 @@ export function getPublicContactInfo(settings = {}) {
     phone: settings?.contact_phone || site.phone || '',
     email: settings?.contact_email || site.email || '',
     address: settings?.address || site.address || '',
-    workingHours: site.workingHours || site.hours || 'Mon to Fri · 9am to 7pm',
+    workingHours: site.workingHours || site.hours || 'Mon to Sat: 10:00 AM – 1:00 PM & 6:00 PM – 9:00 PM',
   };
 }
 

@@ -258,7 +258,7 @@ export default function TestimonialsPage() {
                   <WhatsAppIcon className="w-4 h-4" /> Chat on WhatsApp
                 </a>
                 <Link to="/appointment" className="btn-primary px-5 py-3.5 text-sm gap-2 group">
-                  <Calendar size={14} /> Book a Call
+                  <Calendar size={14} /> Book Appointment
                   <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>

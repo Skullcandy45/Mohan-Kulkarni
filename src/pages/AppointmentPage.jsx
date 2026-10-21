@@ -121,7 +121,7 @@ export default function AppointmentPage() {
 
   const sendOnWhatsApp = () => {
     const lines = [
-      `Hi ${site.name} — I'd like to book a call.`,
+      `Hi ${site.name} — I'd like to book an appointment.`,
       form.name && `Name: ${form.name}`,
       form.email && `Email: ${form.email}`,
       form.phone && `Phone: ${form.phone}`,
@@ -212,7 +212,7 @@ export default function AppointmentPage() {
                 </p>
                 <a
                   href={buildWhatsAppLink(
-                    "Hi — I want to book a call this week.",
+                    "Hi — I want to book a dental consultation this week.",
                     settings,
                   )}
                   target="_blank"

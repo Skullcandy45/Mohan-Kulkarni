@@ -232,7 +232,7 @@ export default function AboutPage() {
                   <WhatsAppIcon className="w-5 h-5" /> Chat on WhatsApp
                 </a>
                 <Link to="/appointment" className="btn-white px-6 py-4 text-[15px] gap-2 group">
-                  <Calendar size={16} /> Book a Call
+                  <Calendar size={16} /> Book Appointment
                   <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </Link>
               </div>
