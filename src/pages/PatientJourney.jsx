@@ -517,7 +517,7 @@ export default function PatientJourney() {
         <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
           <a
             href="/contact#book-appointment"
-            className="pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
+            className="pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
           >
             <CalendarCheck size={16} weight="bold" />
             <span>Book Initial Consultation</span>

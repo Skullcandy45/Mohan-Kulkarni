@@ -197,7 +197,7 @@ export default function Contact() {
                 href={`https://maps.google.com/?q=${currentLocation.mapQuery}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto flex-1 pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-semibold py-3 px-5 rounded-full flex items-center justify-center gap-2 transition-colors shadow-sm"
+                className="w-full sm:w-auto flex-1 pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-semibold py-3 px-5 rounded-full flex items-center justify-center gap-2 transition-colors shadow-sm"
               >
                 <NavigationArrow size={15} weight="bold" />
                 <span>Get Directions in Google Maps</span>
@@ -447,7 +447,7 @@ export default function Contact() {
               <div className="pt-2">
                 <button
                   type="submit"
-                  className="w-full pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-bold py-3.5 px-8 rounded-full shadow-md flex items-center justify-center gap-2 transition-all duration-200"
+                  className="w-full pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-bold py-3.5 px-8 rounded-full shadow-md flex items-center justify-center gap-2 transition-all duration-200"
                 >
                   <CalendarCheck size={16} weight="bold" />
                   <span>Submit Appointment Request</span>

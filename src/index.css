@@ -41,7 +41,7 @@
 }
 
 @layer components {
-  /* Eyebrow Label with small bronze dot */
+  /* Eyebrow Label with small imperial gold dot */
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-eyebrow uppercase;
   }
@@ -61,7 +61,7 @@
   }
 
   .pill-button-primary {
-    @apply pill-button bg-bronze-600 text-alabaster-50 hover:bg-[#864c31] active:scale-[0.98] shadow-sm;
+    @apply pill-button bg-bronze-600 text-alabaster-50 hover:bg-[#9E731C] active:scale-[0.98] shadow-sm;
   }
 
   .pill-button-secondary {

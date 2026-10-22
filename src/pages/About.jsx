@@ -171,7 +171,7 @@ export default function About() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="/contact#book-appointment"
-              className="pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
+              className="pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
             >
               <CalendarCheck size={16} weight="bold" />
               <span>Consult Dr. Mohan Kulkarni</span>
@@ -327,7 +327,7 @@ export default function About() {
 
         <a
           href="/contact#book-appointment"
-          className="pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2 shrink-0 shadow-sm transition-all"
+          className="pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-bold px-8 py-3.5 rounded-full inline-flex items-center gap-2 shrink-0 shadow-sm transition-all"
         >
           <CalendarCheck size={16} weight="bold" />
           <span>Book Appointment</span>

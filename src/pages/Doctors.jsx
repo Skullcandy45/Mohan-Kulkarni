@@ -200,7 +200,7 @@ export default function Doctors() {
           </p>
           <a
             href="/#book-appointment"
-            className="pill-button bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
+            className="pill-button bg-bronze-600 hover:bg-[#9E731C] text-alabaster-50 text-xs font-semibold px-8 py-3.5 rounded-full inline-flex items-center gap-2 shadow-sm transition-all"
           >
             <CalendarCheck size={16} weight="bold" />
             <span>Schedule an In-Chambers Visit</span>
