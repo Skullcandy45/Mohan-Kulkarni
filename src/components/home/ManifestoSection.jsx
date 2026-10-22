@@ -70,7 +70,7 @@ export default function ManifestoSection() {
               {/* Doctor Editorial Portrait */}
               <img
                 src={manifesto.image}
-                alt={`${siteConfig.doctor.name} — ${siteConfig.doctor.title}`}
+                alt={`${siteConfig.doctor.name} ï¿½ ${siteConfig.doctor.title}`}
                 className="w-full h-full object-cover object-top brightness-95 group-hover:scale-105 transition-transform duration-700 ease-emil"
                 loading="lazy"
               />

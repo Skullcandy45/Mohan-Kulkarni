@@ -52,7 +52,7 @@ export default function StreamlinedServicesSection() {
               <span>ADVANCED TREATMENTS &amp; RESTORATIONS</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-cypress-950 tracking-tight leading-tight">
-              Clinical Mastery, <span className="italic font-normal text-bronze-600">Personalized Smiles.</span>
+              Clinical Mastery, Personalized Smiles.
             </h2>
           </div>
 

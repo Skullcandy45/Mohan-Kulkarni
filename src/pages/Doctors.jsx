@@ -64,7 +64,7 @@ export default function Doctors() {
           <span>MULTISPECIALTY DENTAL PANEL</span>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl font-bold text-cypress-950 tracking-tight leading-tight mb-4">
-          Specialist-Led <span className="italic font-normal text-bronze-600">Care Team.</span>
+          Specialist-Led Care Team.
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
           Modern dental surgery and smile rehabilitation demand coordinated subspecialty mastery. Under the clinical leadership of Dr. Mohan Kulkarni, our multidisciplinary panel brings together 47+ years of oral implantology with expert orthodontics and micro-endodontics.

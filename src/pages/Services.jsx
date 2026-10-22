@@ -52,7 +52,7 @@ const procedureImageMap = {
   'single-visit-rct': {
     src: '/assets/images/dental_institute.jpg',
     alt: 'Single-visit microscopic root canal under dental operating microscope',
-    tag: '20× Zeiss Optical Magnification',
+    tag: '20ï¿½ Zeiss Optical Magnification',
   },
   'clear-aligners': {
     src: '/assets/images/chambers_appointment_interior.jpg',
@@ -73,7 +73,7 @@ const procedureImageMap = {
 
 const procedureTelemetryMap = {
   'immediate-implants': {
-    duration: '45–60 Mins Chair Time',
+    duration: '45ï¿½60 Mins Chair Time',
     setting: 'Santacruz West Operatory Suite',
     stay: 'Same-Day Return to Light Routine',
     coverage: 'Lifetime Osseointegration Assurance',
@@ -152,7 +152,7 @@ export default function Services() {
           <span>CLINICAL PROCEDURES &amp; TREATMENTS</span>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl font-bold text-cypress-950 tracking-tight leading-tight mb-4">
-          Precision Dentistry &amp; <span className="italic font-normal text-bronze-600">Biological Preservation.</span>
+          Precision Dentistry & Biological Preservation.
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
           Comprehensive restorative, aesthetic, and implant dentistry combining high-power optical magnification, 3D digital smile simulation, and painless computerized Wand anesthesia in Santacruz West, Mumbai. Every clinical pathway preserves lifelong oral function and radiant aesthetics.
@@ -216,7 +216,7 @@ export default function Services() {
             </div>
             <div className="flex items-center justify-between">
               <span className="text-bronze-400 font-semibold">Magnification:</span>
-              <span>Up to 20× Operating Microscopy</span>
+              <span>Up to 20ï¿½ Operating Microscopy</span>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@ export default function Services() {
             tag: 'Clinical Precision',
           };
           const telemetry = procedureTelemetryMap[proc.id] || {
-            duration: '45–60 Mins Chair Time',
+            duration: '45ï¿½60 Mins Chair Time',
             setting: 'Santacruz West Operatory',
             stay: 'Same-Day Return to Routine',
             coverage: 'Biological Osseointegration Guarantee',
@@ -403,7 +403,7 @@ export default function Services() {
       <div className="rounded-3xl bg-cypress-950 text-alabaster-50 p-8 sm:p-12 border border-cypress-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="text-[10px] font-bold uppercase tracking-eyebrow text-bronze-400 block mb-1">
-            RAPID CLINICAL TRIAGE · SANTACRUZ WEST
+            RAPID CLINICAL TRIAGE ï¿½ SANTACRUZ WEST
           </span>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-alabaster-50 tracking-tight mb-2">
             Have Questions About a Specific Dental Treatment?

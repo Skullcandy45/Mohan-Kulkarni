@@ -34,13 +34,12 @@ export default function HeroSection() {
             {/* Clinical Eyebrow */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-alabaster-100/90 border border-alabaster-200 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-6 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-bronze-600" />
-              <span>SANTACRUZ WEST · MUMBAI · ADVANCED DENTISTRY & IMPLANTS</span>
+              <span>SANTACRUZ WEST ï¿½ MUMBAI ï¿½ ADVANCED DENTISTRY & IMPLANTS</span>
             </div>
 
             {/* Zodiak Headline */}
             <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-cypress-950 leading-[1.12] mb-6">
-              Clarity & Precision You Can{' '}
-              <span className="italic font-normal text-bronze-600">Feel Confident In.</span>
+              Clarity & Precision You Can Feel Confident In.
             </h1>
 
             {/* Subtitle */}
@@ -52,7 +51,7 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 w-full sm:w-auto">
               <a
                 href="#book-appointment"
-                className="pill-button bg-gradient-to-r from-bronze-600 via-[#a35e40] to-bronze-600 text-alabaster-50 font-bold text-sm px-6 sm:px-7 py-3.5 rounded-full shadow-[0_4px_16px_rgba(154,91,62,0.3)] hover:shadow-[0_6px_22px_rgba(154,91,62,0.45)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto flex items-center justify-center gap-2 group transition-all"
+                className="pill-button bg-cypress-950 hover:bg-cypress-900 text-alabaster-50 font-bold text-sm px-6 sm:px-7 py-3.5 rounded-full shadow-[0_4px_16px_rgba(7,15,30,0.25)] hover:shadow-[0_6px_22px_rgba(7,15,30,0.35)] hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto flex items-center justify-center gap-2 group transition-all"
               >
                 <CalendarCheck size={18} weight="bold" />
                 <span>Book Appointment</span>
@@ -81,7 +80,7 @@ export default function HeroSection() {
             <div className="mt-8 pt-6 border-t border-alabaster-200/90 flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-slate-600 font-medium">
               <span className="inline-flex items-center gap-1.5 font-semibold text-cypress-950">
                 <ShieldCheck size={16} className="text-bronze-600" />
-                47+ Years Clinical Mastery · Est. 1977
+                47+ Years Clinical Mastery ï¿½ Est. 1977
               </span>
               <span className="text-alabaster-300 hidden sm:inline">|</span>
               <span>Past President, IDA Mumbai</span>
@@ -132,7 +131,7 @@ export default function HeroSection() {
 
               {/* Caption */}
               <p className="text-xs text-slate-600 leading-relaxed mb-4">
-                Immediate Load Implants · 3D Digital Smile Design · Microscopic RCT · Clear Aligners
+                Immediate Load Implants ï¿½ 3D Digital Smile Design ï¿½ Microscopic RCT ï¿½ Clear Aligners
               </p>
 
               {/* Tertiary Referral Highlight */}
@@ -146,7 +145,7 @@ export default function HeroSection() {
               {/* Hospital Affiliations Badge Strip */}
               <div className="mt-4 pt-3.5 border-t border-alabaster-200/80 flex items-center justify-between text-[11px] text-slate-600">
                 <span className="font-semibold text-cypress-950">Santacruz West Chambers</span>
-                <span className="text-alabaster-300">·</span>
+                <span className="text-alabaster-300">ï¿½</span>
                 <span className="font-semibold text-cypress-950">Past President IDA Mumbai</span>
               </div>
             </div>
@@ -168,7 +167,7 @@ export default function HeroSection() {
                   Working Hours
                 </h4>
                 <p className="font-semibold text-sm text-cypress-900 mb-2">
-                  Mon – Sat: 10:00 – 13:00 &amp; 18:00 – 21:00
+                  Mon ï¿½ Sat: 10:00 ï¿½ 13:00 &amp; 18:00 ï¿½ 21:00
                 </p>
                 <p className="text-xs text-slate-600 leading-relaxed mb-4">
                   Emergency dental triage slots reserved daily. Post-procedure clinical support on-call.
@@ -183,7 +182,7 @@ export default function HeroSection() {
             </div>
 
             {/* Card 2: Contact Us */}
-            <div className="bg-gradient-to-br from-bronze-600 to-[#864c31] text-alabaster-50 p-6 rounded-2xl shadow-card flex flex-col justify-between hover:brightness-105 transition-all duration-200">
+            <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-900 text-alabaster-50 p-6 rounded-2xl shadow-card flex flex-col justify-between hover:brightness-105 transition-all duration-200">
               <div>
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-alabaster-50 mb-4">
                   <PhoneCall size={20} weight="fill" />
@@ -243,7 +242,7 @@ export default function HeroSection() {
               <div className="absolute inset-0 w-full h-full bg-cypress-900">
                 <img
                   src={siteConfig.operationalDock[3].image}
-                  alt="Dr. Mohan Kulkarni — Chief Dental Surgeon & Implantologist"
+                  alt="Dr. Mohan Kulkarni ï¿½ Chief Dental Surgeon & Implantologist"
                   className="w-full h-full object-cover object-top brightness-95 group-hover:scale-105 transition-transform duration-500 ease-emil"
                   loading="eager"
                 />
@@ -264,7 +263,7 @@ export default function HeroSection() {
                 </div>
                 <a
                   href="#book-appointment"
-                  className="w-full flex items-center justify-center gap-2 bg-bronze-600 hover:bg-[#864c31] text-alabaster-50 text-xs font-bold py-3 px-4 rounded-full shadow-md active:scale-[0.98] transition-all duration-200"
+                  className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-alabaster-50 text-xs font-bold py-3 px-4 rounded-full shadow-md active:scale-[0.98] transition-all duration-200"
                 >
                   <CalendarCheck size={16} weight="bold" />
                   <span>Book appointment</span>

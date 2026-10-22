@@ -45,7 +45,7 @@ export default function AppointmentBannerSection() {
 
               {/* Zodiak Heading */}
               <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-alabaster-50 tracking-tight leading-tight mb-4">
-                Schedule Your Visit, <span className="italic font-normal text-bronze-400">Today.</span>
+                Schedule Your Visit, Today.
               </h2>
 
               {/* Intro */}
@@ -196,7 +196,7 @@ export default function AppointmentBannerSection() {
             {/* Floating Quiet Luxury Location Badge */}
             <div className="relative z-10 p-5 sm:p-6 m-4 sm:m-6 rounded-2xl bg-cypress-950/90 backdrop-blur-md border border-cypress-800/80 text-alabaster-50 shadow-2xl">
               <span className="text-[10px] font-bold uppercase tracking-eyebrow text-bronze-400 block mb-1">
-                PRIVATE CHAMBERS · SANTACRUZ WEST
+                PRIVATE CHAMBERS ï¿½ SANTACRUZ WEST
               </span>
               <h3 className="font-sans text-sm sm:text-base font-bold text-alabaster-50 mb-1">
                 Suite 2, Saraswat Colony
@@ -207,9 +207,9 @@ export default function AppointmentBannerSection() {
               <div className="flex items-center gap-3 text-[11px] text-bronze-400 font-medium pt-2 border-t border-cypress-800">
                 <span className="flex items-center gap-1.5">
                   <Clock size={13} weight="bold" />
-                  Mon–Sat 10:00–13:00 &amp; 18:00–21:00
+                  Monï¿½Sat 10:00ï¿½13:00 &amp; 18:00ï¿½21:00
                 </span>
-                <span>·</span>
+                <span>ï¿½</span>
                 <span>Valet Parking</span>
               </div>
             </div>

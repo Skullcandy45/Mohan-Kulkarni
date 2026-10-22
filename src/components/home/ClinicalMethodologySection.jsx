@@ -44,10 +44,7 @@ export default function ClinicalMethodologySection() {
 
             {/* Zodiak Heading */}
             <h2 className="font-display text-3xl sm:text-4xl lg:text-[2.65rem] font-bold text-cypress-950 leading-tight mb-5">
-              {clinicalMethodology.title}{' '}
-              <span className="italic font-normal text-bronze-600">
-                {clinicalMethodology.titleAccent}
-              </span>
+              {clinicalMethodology.title} {clinicalMethodology.titleAccent}
             </h2>
 
             {/* Editorial practice philosophy copy */}
@@ -111,7 +108,7 @@ export default function ClinicalMethodologySection() {
                 </span>
                 <div className="flex items-center gap-2 text-[11px] text-bronze-400 font-semibold tracking-wide">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>20× ZEISS OPTICAL LOOP</span>
+                  <span>20ï¿½ ZEISS OPTICAL LOOP</span>
                 </div>
               </div>
 
@@ -156,7 +153,7 @@ export default function ClinicalMethodologySection() {
                 <div className="flex items-center justify-between text-xs text-alabaster-100">
                   <span className="font-semibold text-alabaster-50 flex items-center gap-1.5">
                     <Eye size={14} className="text-bronze-400" />
-                    Optical Magnification: Up to 20× HD
+                    Optical Magnification: Up to 20ï¿½ HD
                   </span>
                   <span className="text-bronze-400 font-bold">0.05 mm Precision Margins</span>
                 </div>

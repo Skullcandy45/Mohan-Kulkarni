@@ -57,7 +57,7 @@ export default function About() {
     },
     {
       title: 'Microscopic Optical Guidance',
-      badge: '20× Optical Precision',
+      badge: '20ï¿½ Optical Precision',
       desc: 'Employing high-power dental magnification to illuminate accessory canals, marginal micro-gaps, and subtle fracture lines.',
       image: '/assets/images/dental_institute.jpg',
       icon: Cpu,
@@ -94,7 +94,7 @@ export default function About() {
           <div className="rounded-3xl overflow-hidden border border-alabaster-200 bg-cypress-950 shadow-card aspect-[4/5] relative group">
             <img
               src={doctor.image}
-              alt={`${doctor.name} — ${doctor.title}`}
+              alt={`${doctor.name} ï¿½ ${doctor.title}`}
               className="w-full h-full object-cover object-top brightness-95 group-hover:scale-105 transition-transform duration-700 ease-emil"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-cypress-950/85 via-transparent to-transparent pointer-events-none" />
@@ -118,7 +118,7 @@ export default function About() {
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-cypress-950 tracking-tight leading-tight mb-6">
-            Four Decades of Clinical Mastery in <span className="italic font-normal text-bronze-600">Advanced Dentistry.</span>
+            Four Decades of Clinical Mastery in Advanced Dentistry.
           </h1>
 
           <p className="text-base text-slate-600 leading-relaxed mb-4">
@@ -216,7 +216,7 @@ export default function About() {
             </span>
             <span className="inline-flex items-center gap-1.5">
               <CheckCircle size={16} weight="fill" />
-              20× Optical Magnification
+              20ï¿½ Optical Magnification
             </span>
           </div>
         </div>
@@ -315,7 +315,7 @@ export default function About() {
       <div className="rounded-3xl bg-cypress-950 text-alabaster-50 p-8 sm:p-12 border border-cypress-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
           <span className="text-[10px] font-bold uppercase tracking-eyebrow text-bronze-400 block mb-1">
-            EST. 1977 · SANTACRUZ WEST
+            EST. 1977 ï¿½ SANTACRUZ WEST
           </span>
           <h3 className="font-display text-2xl sm:text-3xl font-bold text-alabaster-50 tracking-tight mb-2">
             Schedule a Consultation with Dr. Mohan Kulkarni

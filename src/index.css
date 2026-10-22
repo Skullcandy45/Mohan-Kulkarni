@@ -14,18 +14,13 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  h1, h2 {
+  h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     line-height: 1.15;
   }
 
-  h3 {
-    letter-spacing: -0.015em;
-    line-height: 1.25;
-  }
-
-  h4, h5, h6 {
+  h5, h6 {
     font-family: var(--font-sans);
     letter-spacing: -0.01em;
     line-height: 1.35;
@@ -41,7 +36,7 @@
 }
 
 @layer components {
-  /* Eyebrow Label with small imperial gold dot */
+  /* Eyebrow Label with small royal blue dot */
   .eyebrow {
     @apply inline-flex items-center gap-2 text-xs font-semibold tracking-eyebrow uppercase;
   }
@@ -61,7 +56,7 @@
   }
 
   .pill-button-primary {
-    @apply pill-button bg-bronze-600 text-alabaster-50 hover:bg-[#9E731C] active:scale-[0.98] shadow-sm;
+    @apply pill-button bg-blue-600 text-white hover:bg-blue-700 active:scale-[0.98] shadow-sm;
   }
 
   .pill-button-secondary {
@@ -73,7 +68,7 @@
   }
 
   .pill-button-dark {
-    @apply pill-button bg-cypress-900 text-alabaster-50 hover:bg-cypress-800 active:scale-[0.98];
+    @apply pill-button bg-cypress-950 text-alabaster-50 hover:bg-cypress-900 active:scale-[0.98];
   }
 
   /* Card Surfaces */

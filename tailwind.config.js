@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Mapped to Midnight Sapphire, Imperial Champagne Gold, and Crisp Porcelain
+        // Midnight Sapphire, Crisp Porcelain, and Medical Royal Blue (NO BROWN)
         cypress: {
           800: '#182A4D', // midnight sapphire accent
           900: '#0E1A33', // dark sovereign navy
@@ -19,9 +19,9 @@ export default {
           200: '#DEE4ED', // refined architectural silver-blue border
         },
         bronze: {
-          300: '#E8C375', // radiant pale gold
-          400: '#D8A748', // luminous champagne gold
-          600: '#B88628', // imperial warm gold
+          300: '#93C5FD', // pale ice blue
+          400: '#60A5FA', // luminous sky blue
+          600: '#2563EB', // vibrant royal medical blue
         },
         slate: {
           600: '#4B5565', // refined clinical charcoal slate
@@ -31,10 +31,11 @@ export default {
           900: '#0E1A33',
           950: '#070F1E',
         },
-        gold: {
-          300: '#E8C375',
-          400: '#D8A748',
-          600: '#B88628',
+        royal: {
+          300: '#93C5FD',
+          400: '#60A5FA',
+          600: '#2563EB',
+          700: '#1D4ED8',
         },
         porcelain: {
           50: '#F8FAFD',

@@ -17,7 +17,7 @@ export default function CareTeamSection() {
               <span>OUR SPECIALISTS</span>
             </div>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-cypress-950 tracking-tight leading-tight">
-              Specialist-Led <span className="italic font-normal text-bronze-600">Care Team.</span>
+              Specialist-Led Care Team.
             </h2>
           </div>
 
@@ -41,7 +41,7 @@ export default function CareTeamSection() {
               <div className="relative aspect-[4/4.5] w-full overflow-hidden bg-cypress-950">
                 <img
                   src={member.image}
-                  alt={`${member.name} — ${member.role}`}
+                  alt={`${member.name} ï¿½ ${member.role}`}
                   className="w-full h-full object-cover object-top brightness-95 group-hover:scale-105 transition-transform duration-700 ease-emil"
                   loading="lazy"
                 />

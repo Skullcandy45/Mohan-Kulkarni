@@ -89,7 +89,7 @@ export default function Contact() {
           <span>DENTAL CHAMBERS & APPOINTMENTS</span>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl font-bold text-cypress-950 tracking-tight leading-tight mb-4">
-          Direct Contact & <span className="italic font-normal text-bronze-600">Location.</span>
+          Direct Contact & Location.
         </h1>
         <p className="text-base text-slate-600 leading-relaxed">
           Centrally located in Saraswat Colony, Santacruz West, Mumbai (near Podar International School & SV Road). Conveniently positioned for local Mumbai families, outstation patients, and international NRI visitors seeking premier dental implantology, microscopic root canal therapy, and smile design.

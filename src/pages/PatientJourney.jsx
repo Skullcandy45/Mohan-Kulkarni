@@ -214,7 +214,7 @@ export default function PatientJourney() {
           <span>COMPREHENSIVE DENTAL CARE PATHWAY</span>
         </div>
         <h1 className="font-display text-4xl sm:text-5xl font-bold text-cypress-950 tracking-tight leading-tight mb-4">
-          The Patient <span className="italic font-normal text-bronze-600">Journey.</span>
+          The Patient Journey.
         </h1>
         <p className="text-base text-slate-600 leading-relaxed mb-6">
           Facing dental pain or planning a smile transformation should never be daunting. We believe transparency and clinical precision are essential to peace of mind. Here is a step-by-step overview of how our practice guides you from initial 3D consultation through gentle microscopic treatment and lifetime smile maintenance.

@@ -1,18 +1,18 @@
-/* Font Imports: Fontshare Zodiak + Google Fonts / Fontshare Plus Jakarta Sans */
+/* Font Imports: Fontshare Zodiak + Google Fonts Plus Jakarta Sans */
 @import url('https://api.fontshare.com/v2/css?f[]=zodiak@400,401,500,501,600,601,700,701&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 :root {
-  /* Color Tokens - Midnight Sapphire, Imperial Champagne Gold & Crisp Porcelain */
+  /* Color Tokens - Midnight Sapphire, Medical Royal Blue & Crisp Porcelain (Zero Brown) */
   --color-cypress-950: #070F1E;
   --color-cypress-900: #0E1A33;
   --color-cypress-800: #182A4D;
   --color-alabaster-50: #F8FAFD;
   --color-alabaster-100: #EEF2F7;
   --color-alabaster-200: #DEE4ED;
-  --color-bronze-600: #B88628;
-  --color-bronze-400: #D8A748;
-  --color-bronze-300: #E8C375;
+  --color-bronze-600: #2563EB; /* Clean Royal Medical Blue */
+  --color-bronze-400: #60A5FA; /* Sky Azure */
+  --color-bronze-300: #93C5FD; /* Pale Ice Blue */
   --color-slate-600: #4B5565;
 
   /* Typography */
